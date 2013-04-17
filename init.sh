@@ -21,7 +21,8 @@ gitvars() {
 
 su() {
   user=$( if [[ -n "$1" ]]; then echo "-u $1"; fi)
-  sudo bash --rcfile ~/.bash_profile -i $user
+  profile=$( cd ~ && pwd )/.bash_profile
+  sudo bash --rcfile $profile -i $user
 }
 
 function c { pygmentize -O style=monokai -f console256 -g $1 | less -RN; }
