@@ -1,4 +1,4 @@
-DOTBASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DOTBASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # git prompt stuff
 GIT_PS1_SHOWUPSTREAM="git"
@@ -20,9 +20,9 @@ gitvars() {
 }
 
 su() {
-  user=$( if [[ -n "$1" ]]; then echo "-u $1"; fi)
+  user="$( if [ -n "$1" ]; then echo "-u $1"; fi)"
   profile=$( cd ~ && pwd )/.bash_profile
-  sudo bash --rcfile $profile -i $user
+  sudo $user bash --rcfile $profile -i
 }
 
 function c { pygmentize -O style=monokai -f console256 -g $1 | less -RN; }
