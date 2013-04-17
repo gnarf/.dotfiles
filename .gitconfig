@@ -26,7 +26,5 @@
 excludesfile = "/Users/gnarf/.gitexcludes"
 [credential]
 	helper = store
-[push]
-	default = simple
 [color]
 	ui = auto
