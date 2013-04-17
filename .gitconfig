@@ -21,6 +21,8 @@
  cleanup = !git gc && git remote prune origin
  fork = remote add -f
  squash = merge --squash
+ pr = "!f() { git fetch origin refs/pull/$1/head:pr/$1; } ; f"
+
 [core]
 	autocrlf = input
 excludesfile = "/Users/gnarf/.gitexcludes"

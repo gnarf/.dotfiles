@@ -2,7 +2,7 @@
 DOTBASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DOTBASE
 echo "Installing .gitconfig"
-cp .gitconfig ~
+ln .gitconfig ~ || echo "manual fix: rm ~/.gitconfig; ln $DOTBASE/.gitconfig ~"
 set -e
 echo -n "What hostname do you want: "
 read PROMPTHOST
