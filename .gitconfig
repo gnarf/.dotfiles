@@ -1,0 +1,32 @@
+[user]
+	name = Corey Frang
+	email = gnarf@gnarf.net
+
+[alias]
+ pretty-diff = !node /Users/gnarf/node/pretty-diff/pretty-diff.js
+ gist-diff = !node /Users/gnarf/node/pretty-diff/gist-diff.js
+ feature = flow feature
+ st = status -sb
+ ci = commit
+ cm = commit -am
+ br = branch
+ co = checkout
+ df = diff
+ lp = log -p
+ who = shortlog -n -s --no-merges
+ undo = reset --hard
+ lc = log ORIG_HEAD.. --stat --no-merges
+ lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+ lf = log --pretty=fuller
+ cleanup = !git gc && git remote prune origin
+ fork = remote add -f
+ squash = merge --squash
+[core]
+	autocrlf = input
+excludesfile = "/Users/gnarf/.gitexcludes"
+[credential]
+	helper = store
+[push]
+	default = simple
+[color]
+	ui = auto
