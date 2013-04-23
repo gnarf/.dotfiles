@@ -21,8 +21,9 @@
  cleanup = !git gc && git remote prune origin
  fork = remote add -f
  squash = merge --squash
- pr = "!f() { git fetch origin refs/pull/$1/head:pr/$1; } ; f"
 
+ pr = "!f() { git fetch origin refs/pull/$1/head:pr/$1; } ; f"
+ pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 [core]
 	autocrlf = input
 excludesfile = "/Users/gnarf/.gitexcludes"
