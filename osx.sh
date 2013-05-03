@@ -20,3 +20,11 @@ function tabname {
 function winname {
   printf "\e]2;$1\a"
 }
+
+function @ {
+  t @$1
+  ssh $*
+  t @air
+}
+
+t @air
