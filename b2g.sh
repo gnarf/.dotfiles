@@ -11,3 +11,9 @@ gaia-unit() {
 adb-console() {
   adb shell logcat | grep GeckoConsole
 }
+
+adb-screen() {
+  adb shell /system/bin/screencap -p /sdcard/screenshot.png  && \
+  adb pull /sdcard/screenshot.png ~/Desktop/devicescreenshot.png && \
+  open ~/Desktop/devicescreenshot.png
+}
