@@ -1,6 +1,18 @@
 export PATH=/Applications/B2G.app/Contents/MacOS/:$PATH
-gaia-test() {
+
+gup() {
+  cd ~/Projects/gaia/
+  make clean
+  DEBUG=1 make
+  make test-agent-server &
+  gaia-test &
+}
+
+gaia-test-latest() {
   /Applications/FirefoxNightly.app/Contents/MacOS/firefox -profile /Users/gnarf/Projects/gaia/profile http://test-agent.gaiamobile.org:8080 > /dev/null 2>&1
+}
+gaia-test() {
+  /Applications/FirefoxNightly\ 18.app/Contents/MacOS/firefox -profile /Users/gnarf/Projects/gaia/profile http://test-agent.gaiamobile.org:8080 > /dev/null 2>&1
 }
 gaia-b2g() {
   /Applications/B2G.app/Contents/MacOS/b2g-bin -profile /Users/gnarf/Projects/gaia/profile http://test-agent.gaiamobile.org:8080
