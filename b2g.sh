@@ -8,6 +8,15 @@ gup() {
   gaia-test &
 }
 
+gupl() {
+  cd ~/Projects/gaia/
+  make clean
+  DEBUG=1 make
+  make test-agent-server &
+  gaia-test-latest &
+}
+
+
 gaia-test-latest() {
   /Applications/FirefoxNightly.app/Contents/MacOS/firefox -profile /Users/gnarf/Projects/gaia/profile http://test-agent.gaiamobile.org:8080 > /dev/null 2>&1
 }
