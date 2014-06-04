@@ -42,7 +42,7 @@ gpt() {
   tests=${1:-$root/tests/manifest.ini}
   if [ ! -e $tests ]
     then
-    tests=$(find tests/python/gaia-ui-tests/gaiatest/tests/ -name "*$1*" \( -type d -o -name "*.py" \))
+    tests=$(find $root/tests -name "*$1*" \( -type d -o -name "*.py" \))
   fi
   shift
 
