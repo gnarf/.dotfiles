@@ -6,6 +6,7 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 . $DOTBASE/git-prompt.sh
+. $DOTBASE/git-completion.bash
 
 PROMPT_COMMAND='es=$?'
 UC="\[\033[0;36m\]"    # user's color
