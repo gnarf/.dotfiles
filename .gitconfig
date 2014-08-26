@@ -21,15 +21,10 @@
  cleanup = !git gc && git remote prune origin
  fork = remote add -f
  squash = merge --squash
-        pr = "!f() { git fetch -fu origin refs/pull/$1/head:pr/$1 ; git co pr/$1; } ; f"
-        prm = "!f() { git fetch -fu origin refs/pull/$1/merge:pr/$1 ; git co pr/$1; } ; f"
-        prr = "!f() { git fetch -fu $1 refs/pull/$2/head:pr/$2 ; git co pr/$2; } ; f"
-        prrm = "!f() { git fetch -fu $1 refs/pull/$2/merge:pr/$2 ; git co pr/$2; } ; f"
-        pru = "!f() { git fetch -fu upstream refs/pull/$1/head:pr/$1 ; git co pr/$1; } ; f"
-        prum = "!f() { git fetch -fu upstream refs/pull/$1/merge:pr/$1 ; git co pr/$1; } ; f"
-        pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
-	pp = format-patch -U8 --stdout
-	ff = merge --ff-only
+ pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+ pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+ pp = format-patch -U8 --stdout
+ ff = merge --ff-only
 
 [core]
 	autocrlf = input
