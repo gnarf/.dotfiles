@@ -9,7 +9,7 @@ read PROMPTHOST
 echo "PROMPTHOST=$PROMPTHOST" >> ~/.bash_profile
 echo ". $DOTBASE/init.sh" >> ~/.bash_profile
 
-for script in b2g.sh osx.sh
+for script in osx.sh
 do 
 	echo -n "Include $script (y/n): "
 	read yno
