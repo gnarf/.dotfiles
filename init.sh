@@ -1,4 +1,6 @@
 export DOTBASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# -X doesn't clear screen on quit, -r keeps ascii codes
+export LESS=-Xr
 
 # git prompt stuff
 GIT_PS1_SHOWUPSTREAM="git"

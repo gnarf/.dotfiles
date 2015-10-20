@@ -1,6 +1,6 @@
 [user]
 	name = Corey Frang
-	email = gnarf@gnarf.net
+	email = gnarf37@gmail.com
 
 [alias]
  pretty-diff = !node /Users/gnarf/node/pretty-diff/pretty-diff.js
