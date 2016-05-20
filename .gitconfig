@@ -25,6 +25,7 @@
  pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
  pp = format-patch -U8 --stdout
  ff = merge --ff-only
+	ap = !git add -N ${1:-.} && git add -p $1
 
 [core]
 	autocrlf = input
@@ -33,3 +34,5 @@ excludesfile = "/Users/gnarf/.gitexcludes"
 	helper = store
 [color]
 	ui = auto
+[push]
+	default = simple
