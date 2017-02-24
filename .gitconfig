@@ -21,12 +21,14 @@
  cleanup = !git gc && git remote prune origin
  fork = remote add -f
  squash = merge --squash
- spr  = "!f() { git fetch -fu ${2:-origin} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
- pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
- pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	pr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+	pr-clean = "!git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
  pp = format-patch -U8 --stdout
  ff = merge --ff-only
-	ap = !git add -N ${1:-.} && git add -p $1
+	ap = !git add -N ${1:-.} && git add -p $1 && git status
+	spr = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+	b = rev-parse --abbrev-ref HEAD
+	authors = "!f() { git ls-tree -r -z --name-only HEAD -- $1 | xargs -0 -n1 git blame --line-porcelain HEAD |grep  \"^author \"|sort|uniq -c|sort -nr ; }; f"
 
 [core]
 	autocrlf = input
