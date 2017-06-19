@@ -24,7 +24,7 @@ gitvars() {
 
 su() {
   user="$( if [ -n "$1" ]; then echo "-u $1"; fi)"
-  profile=$( cd ~ && pwd )/.bash_profile
+  profile=$HOME/.bash_profile
   sudo -i $user bash --rcfile $profile -i
 }
 
