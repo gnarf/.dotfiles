@@ -23,9 +23,9 @@ gitvars() {
 }
 
 su() {
-  user="$( if [ -n "$1" ]; then echo "-u $1"; fi)"
+  user=$( [[ -n $1 ]] && echo "-u $1" )
   profile=$HOME/.bash_profile
-  sudo -i $user bash --rcfile $profile -i
+  sudo $user bash --rcfile $profile -i
 }
 
 function c { pygmentize -O style=monokai -f console256 -g $1 | less -RN; }
